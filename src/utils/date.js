@@ -1,11 +1,11 @@
 // utils/date.js
 export function getMesAtual() {
   const hoje = new Date();
-  // Garante que é o primeiro dia do mês
-  const mesAtual = new Date(hoje.getFullYear(), hoje.getMonth(), 1);
-  // Retorna em formato YYYY-MM-DD
-  return mesAtual.toISOString().slice(0, 10);
+  const ano = hoje.getFullYear();
+  const mes = String(hoje.getMonth() + 1).padStart(2, "0");
+  return `${ano}-${mes}-01`; // primeiro dia do mês local
 }
+
 // utils/date.js
 export function formatMesRef(value) {
   if (!value) return "";
