@@ -9,12 +9,11 @@ export function getMesAtual() {
 // utils/date.js
 export function formatMesRef(value) {
   if (!value) return "";
-  const d = new Date(value);
-  if (isNaN(d)) return value;
-  const ano = d.getFullYear();
-  const mes = String(d.getMonth() + 1).padStart(2, "0");
-  return `${ano}-${mes}`; // YYYY-MM
+  // assume value no formato YYYY-MM-DD
+  const [ano, mes] = value.split("-");
+  return `${ano}-${mes}`;
 }
+
 
 
 export function formatVencimento(value) {
