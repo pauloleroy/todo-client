@@ -1,3 +1,5 @@
+import { toLocalDate } from "../utils/date";
+
 export default function Cards({ tarefas, responsavelAtivo }) {
   const hoje = new Date();  
   hoje.setHours(0,0,0,0);
@@ -13,7 +15,7 @@ export default function Cards({ tarefas, responsavelAtivo }) {
   let urgentes = 0;
 
   tarefasFiltradas.forEach((t) => {
-    const vencimento = new Date(t.vencimento);
+    const vencimento = toLocalDate(t.vencimento);
     console.log(vencimento);
     vencimento.setHours(0,0,0,0);
     if (t.status === "Em aberto" || t.status === "Urgente") emAberto++;
